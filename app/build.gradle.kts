@@ -33,6 +33,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -51,10 +52,20 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
 
-//  Room
+    // Room
     implementation(libs.room.core)
     implementation(libs.room.coroutines)
     ksp(libs.room.compiler)
+
+    // Retrofit
+    implementation(libs.retrofit.core)
+    implementation(libs.retrofit.serialization)
+    implementation(libs.retrofit.logging.interceptor)
+
+    //Coroutines
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
