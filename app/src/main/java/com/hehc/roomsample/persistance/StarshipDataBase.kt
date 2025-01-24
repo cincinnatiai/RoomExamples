@@ -5,5 +5,5 @@ import androidx.room.RoomDatabase
 
 @Database(entities = [Starship::class],version = 1)
 abstract class StarshipDataBase : RoomDatabase() {
-    abstract fun starshipDAO(): StarshipDAO
+    abstract fun getDao(): StarshipDAO
 }

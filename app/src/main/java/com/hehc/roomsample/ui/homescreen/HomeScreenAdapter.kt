@@ -1,18 +1,22 @@
 package com.hehc.roomsample.ui.homescreen
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.hehc.roomsample.databinding.StarshipRowBinding
 import com.hehc.roomsample.persistance.Starship
 
-class HomeScreenAdapter : RecyclerView.Adapter<HomeScreenViewHolder>() {
+class HomeScreenAdapter(
+    private val listener: OnStarshipClickedListener
+) : RecyclerView.Adapter<HomeScreenViewHolder>() {
 
-    private val _starships = mutableListOf<Starship>()
+    private val starships = mutableListOf<Starship>()
 
+    @SuppressLint("NotifyDataSetChanged")
     fun loadStarships(starships: List<Starship>) {
-        _starships.clear()
-        _starships.addAll(starships)
+        this.starships.clear()
+        this.starships.addAll(starships)
         notifyDataSetChanged()
     }
 
@@ -26,12 +30,17 @@ class HomeScreenAdapter : RecyclerView.Adapter<HomeScreenViewHolder>() {
         )
     }
 
-    override fun getItemCount(): Int = _starships.size
+    override fun getItemCount(): Int = starships.size
 
     override fun onBindViewHolder(holder: HomeScreenViewHolder, position: Int) {
-        holder.bindModelToView(_starships[position])
+        val ship = starships[position]
+        holder.bindModelToView(ship)
+        holder.itemView.setOnClickListener {
+            listener.onShipClicked(ship)
+        }
     }
-
 }
 
-
+interface OnStarshipClickedListener {
+    fun onShipClicked(ship: Starship)
+}
