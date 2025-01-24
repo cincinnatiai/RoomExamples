@@ -10,7 +10,7 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav_bar"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="@dimen/bottom_nav_bar_height"
         android:background="@color/design_default_color_primary"
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"
@@ -20,7 +20,7 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/fragment_height"
         android:background="@color/black"
         app:layout_constraintBottom_toTopOf="@id/bottom_nav_bar"
         app:layout_constraintTop_toTopOf="parent" />

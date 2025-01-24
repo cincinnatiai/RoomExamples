@@ -26,4 +26,11 @@ class StarshipRepository(
             localSource.insertAll(ship)
         }
     }
+
+    override suspend fun getAllFavorites(): List<Starship> {
+       return withContext(Dispatchers.IO){
+            Log.d("Repo","Extracting favorite ships.")
+            return@withContext localSource.getAll()
+        }
+    }
 }

@@ -15,7 +15,6 @@ class HomeScreenViewModel(
     private val repo: StarshipRepositoryContract = StarshipRepository()
 ) : ViewModel() {
 
-
     private val _ships = MutableStateFlow<List<Starship>>(listOf())
     val ships: StateFlow<List<Starship>> = _ships
 
