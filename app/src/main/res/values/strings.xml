@@ -4,4 +4,6 @@
     <string name="starship_model_hint">YT-1300 light freighter</string>
     <string name="starship_manufacturer_hint">Corellian Engineering Corporation</string>
     <string name="starship_cost_hint">100000</string>
+    <string name="network_source">From the cloud</string>
+    <string name="local_source">Favorites</string>
 </resources>
